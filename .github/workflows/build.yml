@@ -140,7 +140,7 @@ jobs:
         yq --null-input '{
           "apiVersion": "postgresql.cnpg.io/v1",
           "kind": "ClusterImageCatalog",
-          "metadata": {"name":"postgis"},
+          "metadata": {"name":"atomised-postgis"},
           "spec": {
             "images": [
               {
@@ -192,8 +192,8 @@ jobs:
         uses: EndBug/add-and-commit@v9
         if: ${{ github.ref == 'refs/heads/main' }}
         with:
-          author_name: CloudNativePG Automated Updates
-          author_email: noreply@cnpg.com
+          author_name: Atomised Automated Updates
+          author_email: neil@atomised.coop
           message: 'Automatic ClusterImageCatalog update'
           add: 'PostGIS/ClusterImageCatalog.yaml'
 
