@@ -57,7 +57,7 @@ metadata:
   name: cluster-example
 spec:
   instances: 3
-  imageName: ghcr.io/Atomised/postgis:17-3.4
+  imageName: ghcr.io/atomised/postgis:17-3.4
   bootstrap:
     initdb:
       postInitTemplateSQL:
