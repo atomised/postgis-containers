@@ -111,23 +111,6 @@ jobs:
         accept-keywords: key
         accept-filenames: usr/share/cmake/Templates/Windows/Windows_TemporaryKey.pfx,etc/trusted-key.key,usr/share/doc/perl-IO-Socket-SSL/certs/server_enc.p12,usr/share/doc/perl-IO-Socket-SSL/certs/server.p12,usr/local/lib/python3.9/dist-packages/azure/core/settings.py,usr/local/lib/python3.8/site-packages/azure/core/settings.py,usr/share/postgresql-common/pgdg/apt.postgresql.org.asc,usr/local/lib/python3.7/dist-packages/azure/core/settings.py,etc/ssl/private/ssl-cert-snakeoil.key
 
-    - name: Run Snyk to check Docker image for vulnerabilities
-      uses: snyk/actions/docker@master
-      if: ${{ env.MISSING_TAG == 'true' }}
-      continue-on-error: true
-      env:
-        SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
-      with:
-        image: "${{ env.IMAGE_STAGING }}:${{ matrix.tags[0] }}"
-        args: --severity-threshold=high --file=${{ matrix.file }}
-
-    - name: Upload result to GitHub Code Scanning
-      uses: github/codeql-action/upload-sarif@v3
-      if: ${{ env.MISSING_TAG == 'true' }}
-      continue-on-error: true
-      with:
-        sarif_file: snyk.sarif
-
     - name: Build and push
       id: build
       uses: docker/build-push-action@v6
