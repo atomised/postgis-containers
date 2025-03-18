@@ -18,13 +18,13 @@ FROM postgis/postgis:17-3.5
 
 # Do not split the description, otherwise we will see a blank space in the labels
 LABEL name="PostgreSQL + PostGIS Container Images" \
-      vendor="The CloudNativePG Contributors" \
+      vendor="The CloudNativePG Contributors + Atomised" \
       version="${PG_VERSION}" \
       release="90" \
       summary="PostgreSQL + PostGIS Container images." \
-      description="This Docker image contains PostgreSQL, PostGIS and Barman Cloud based on Postgres 17-3.5."
+      description="This Docker image contains PostgreSQL, PostGIS, pglogical and Barman Cloud based on Postgres 17-3.5."
 
-LABEL org.opencontainers.image.description="This Docker image contains PostgreSQL, PostGIS and Barman Cloud based on Postgres 17-3.5."
+LABEL org.opencontainers.image.description="This Docker image contains PostgreSQL, PostGIS, pglogical and Barman Cloud based on Postgres 17-3.5."
 
 COPY requirements.txt /
 
@@ -34,6 +34,7 @@ RUN set -xe; \
 	apt-get install -y --no-install-recommends \
 		"postgresql-${PG_MAJOR}-pgaudit" \
 		"postgresql-${PG_MAJOR}-pg-failover-slots" \
+		"postgresql-${PG_MAJOR}-pglogical" \
 		"postgresql-${PG_MAJOR}-pgrouting" \
 	; \
 	rm -fr /tmp/* ; \
