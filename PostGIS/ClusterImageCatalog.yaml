@@ -1,0 +1,18 @@
+apiVersion: postgresql.cnpg.io/v1
+kind: ClusterImageCatalog
+metadata:
+  name: postgis
+spec:
+  images:
+    - major: 12
+      image: ghcr.io/cloudnative-pg/postgis:12-3.5-84@sha256:b751a92ce836d3823804046035f1c36368e7cda294d90e97264e1df8170cab4a
+    - major: 13
+      image: ghcr.io/cloudnative-pg/postgis:13-3.5-90@sha256:89e4bf8fa51d843511b409cd5dbbcaeac9157fc18b484ecbde217398a8e4f46d
+    - major: 14
+      image: ghcr.io/cloudnative-pg/postgis:14-3.5-90@sha256:bdfcd38bacc32e5e0d48789c5030173611e06b52acf84b431b103f2fc1fb09a5
+    - major: 15
+      image: ghcr.io/cloudnative-pg/postgis:15-3.5-90@sha256:b7342019473e6becbbe0594046ba57ec1aa68b76669c3d740b8c1343d07f5c5a
+    - major: 16
+      image: ghcr.io/cloudnative-pg/postgis:16-3.5-90@sha256:07f0b003d830c74641c91724a18b533739ae93f39296fd35872b3427bc50f643
+    - major: 17
+      image: ghcr.io/cloudnative-pg/postgis:17-3.5-90@sha256:b9b2a002b5ba730c9d3d12e23187afe26d9c46af50b63b9d03d0b626a50143e6
