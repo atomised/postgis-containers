@@ -5,4 +5,4 @@ metadata:
 spec:
   images:
     - major: 17
-      image: ghcr.io/atomised/postgis:17-3.5-93@sha256:ecc8ef3b615dfc9f64b224f240f7b743b23f21c154490f124da2bac9b58ff4ef
+      image: ghcr.io/atomised/postgis:17-3.5-94@sha256:cfe4c01328bac1ad02d8acbb6de2cf8227624c87828b79ddad7b8d97688f5b63
